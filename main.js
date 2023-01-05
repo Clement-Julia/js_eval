@@ -12,6 +12,7 @@ const tabManager = new TabManager(rootElement, {
   },
   user: {
     component: UserPage,
+    params: [{ page: 1 }]
   }
 })
 
@@ -20,5 +21,11 @@ tabManager.openTabById('user')
 document.querySelectorAll('[data-tabId]').forEach(element => {
   element.addEventListener('click', () => {
     tabManager.openTabById(element.getAttribute('data-tabId'))
+  })
+})
+
+document.querySelectorAll('[data-page]').forEach(element => {
+  element.addEventListener('click', () => {
+    tabManager.openTabById('user', element.getAttribute('data-page'));
   })
 })
