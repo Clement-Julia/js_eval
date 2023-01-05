@@ -4,14 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Rick & Morty fan-club</title>
+
+      <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <script src="https://kit.fontawesome.com/6200c1620f.js" crossorigin="anonymous"></script>
+  
   </head>
   <body>
     <header>
-      <button data-tabId="page1">page1</button>
-      <button data-tabId="user">user</button>
+      <div class="divSearchBar">
+        <input type="text" id="searchBar">
+        <select class="select custom-select" id="searchType">
+          <option value="byName">Par nom</option>
+          <option value="byStatus">Par statut</option>
+          <option value="bySpecies">Par espèce</option>
+          <option value="byGender">Par genre</option>
+        </select>
+        <button type="submit" id="btnSubmit" class="btnSearchBar">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+     
     </header>
+    <div>
+      <label for="select-page">Page :</label>
+      <select name="select-page" id="select-page"></select>
+    </div>
+    <div style="position: fixed;top: 50%;left: 0;margin-left: 10px;" id="previous" title="Page précédente" data-page>&#60;</div>
     <div id="app"></div>
+    <div style="position: fixed;top: 50%;right: 0;margin-right: 10px;" id="next" title="Page suivante" data-page>&#62;</div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
