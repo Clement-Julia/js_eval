@@ -22,3 +22,26 @@ document.querySelectorAll('[data-tabId]').forEach(element => {
     tabManager.openTabById(element.getAttribute('data-tabId'))
   })
 })
+
+const searchBar = document.querySelector('#searchBar');
+const searchSelect = document.querySelector('#searchType');
+searchBar.addEventListener('keyup', (event) => {
+  let searchValue = searchBar.value;
+
+  if (searchValue.length > 25) {
+    alert('Limite de charactères atteintes (25)');
+    return false;
+  }
+
+  let searchTypeValue = searchSelect.value;
+  let searchTypeText = searchSelect.options[searchSelect.selectedIndex].text;
+
+  console.log("searchValue : " + searchValue);
+  console.log("searchTypeValue : " + searchTypeValue);
+  
+  renderList(searchValue, searchType);
+})
+
+function renderList(searchValue, searchType) {
+  
+}

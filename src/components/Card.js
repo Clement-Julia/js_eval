@@ -1,11 +1,13 @@
 export default function Card({ src, text }) {
   return {
     tagName: 'div',
+    classList: ['card', 'bg-dark'],
     children: [
       {
         tagName: 'img',
         attributes: {
-          src
+          src,
+          class: ['card-image-top']
         }
       },
       {
