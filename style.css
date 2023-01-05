@@ -1,0 +1,14 @@
+.users {
+  display: grid;
+  max-width: 780px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.users div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 8px;
+  text-align: center;
+}
