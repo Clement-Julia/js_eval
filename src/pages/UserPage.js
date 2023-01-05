@@ -15,14 +15,23 @@ const fetchPage = async (page = 1) =>  {
 const UserPage = async (obj) => {
   const res = await fetchPage(obj.page)
 
+  let select = document.getElementById('select-page');
+
+  for(var i = 1; i <= res.info.pages; i++){
+    const option = document.createElement('option');
+    option.value = i;
+    option.text = i;
+
+    select.appendChild(option);
+  }
+
+
   let previous = document.getElementById('previous');
   let next = document.getElementById('next');
 
   let urlPrevious = res.info.prev;
   let urlNext = res.info.next;
 
-  console.log(urlPrevious);
-  console.log("");
   if(urlPrevious){
     urlPrevious = urlPrevious.slice(47);
     previous.setAttribute('data-page', urlPrevious);

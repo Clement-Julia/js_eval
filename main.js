@@ -29,3 +29,7 @@ document.querySelectorAll('[data-page]').forEach(element => {
     tabManager.openTabById('user', element.getAttribute('data-page'));
   })
 })
+
+document.querySelector('#select-page').addEventListener('change', (e) => {
+  tabManager.openTabById('user', e.target.value);
+})
