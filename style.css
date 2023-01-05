@@ -92,7 +92,6 @@ header {
 /* */
 .users {
   display: grid;
-  max-width: 780px;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
 }

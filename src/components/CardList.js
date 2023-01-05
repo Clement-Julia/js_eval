@@ -5,6 +5,6 @@ export default function CardList(arrayOfUsers) {
   return createElement({
     tagName: 'div',
     classList: ['users'],
-    children: arrayOfUsers.map(({ first_name, avatar }) => Card({ text: first_name, src: avatar }))
+    children: arrayOfUsers.map(({ id, name, image }) => Card({ id: id, name:name, src: image }))
   })
 }

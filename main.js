@@ -12,6 +12,7 @@ const tabManager = new TabManager(rootElement, {
   },
   user: {
     component: UserPage,
+    params: [{ page: 1 }]
   }
 })
 
@@ -45,3 +46,12 @@ searchBar.addEventListener('keyup', (event) => {
 function renderList(searchValue, searchType) {
   
 }
+document.querySelectorAll('[data-page]').forEach(element => {
+  element.addEventListener('click', () => {
+    tabManager.openTabById('user', element.getAttribute('data-page'));
+  })
+})
+
+document.querySelector('#select-page').addEventListener('change', (e) => {
+  tabManager.openTabById('user', e.target.value);
+})

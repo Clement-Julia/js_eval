@@ -1,7 +1,11 @@
-export default function Card({ src, text }) {
+export default function Card({ id, name, src }) {
   return {
     tagName: 'div',
-    classList: ['card', 'bg-dark'],
+    classList: ['character', 'card', 'bg-dark'],
+    attributes:
+    {
+      'data-id': id
+    },
     children: [
       {
         tagName: 'img',
@@ -12,7 +16,7 @@ export default function Card({ src, text }) {
       },
       {
         tagName: 'p',
-        text
+        text: name
       },
     ]
   }
