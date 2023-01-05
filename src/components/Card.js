@@ -1,7 +1,7 @@
 export default function Card({ id, name, src }) {
   return {
     tagName: 'div',
-    classList: ["character"],
+    classList: ['character', 'card', 'bg-dark'],
     attributes:
     {
       'data-id': id
@@ -10,7 +10,8 @@ export default function Card({ id, name, src }) {
       {
         tagName: 'img',
         attributes: {
-          src
+          src,
+          class: ['card-image-top']
         }
       },
       {
