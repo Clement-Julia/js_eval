@@ -1,6 +1,6 @@
 import CardList from "../components/CardList"
 
-const fetchPage = async (page = 1) => {
+const fetchPage = async (page) => {
   try {
     const req = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
     const res = await req.json();

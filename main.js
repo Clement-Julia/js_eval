@@ -53,18 +53,11 @@ btnSubmit.addEventListener('click', () => {
   renderList(searchValue, searchTypeValue);
 })
 
-document.querySelectorAll('[data-page]').forEach(element => {
-  element.addEventListener('click', () => {
-    tabManager.openTabById('user', element.getAttribute('data-page'));
-  })
-})
-
 document.querySelector('#select-page').addEventListener('change', (e) => {
-  tabManager.openTabById('user', e.target.value);
+  tabManager.openTabById('user', [{ page: e.target.value}]);
 })
 
 document.querySelectorAll('.character').forEach(element => {
-  console.log(element);
   element.addEventListener('click',() =>{
     console.log(element.getAttribute('data-id'));
     tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
