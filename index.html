@@ -14,27 +14,33 @@
   </head>
   <body>
     <header>
-      <div class="divSearchBar">
-        <input type="text" id="searchBar">
-        <select class="select custom-select" id="searchType">
-          <option value="byName">Par nom</option>
-          <option value="byStatus">Par statut</option>
-          <option value="bySpecies">Par espèce</option>
-          <option value="byGender">Par genre</option>
-        </select>
-        <button type="submit" id="btnSubmit" class="btnSearchBar">
-          <i class="fas fa-search"></i>
-        </button>
+
+        <div class="divPage">
+          <label for="select-page">Page :</label>
+          <select name="select-page" id="select-page"></select>
+        </div>
+        <div class="center">
+          <div class="divSearchBar">
+            <input type="text" id="searchBar">
+            <select class="select custom-select" id="searchType">
+              <option value="name">Par nom</option>
+              <option value="status">Par statut</option>
+              <option value="species">Par espèce</option>
+              <option value="gender">Par genre</option>
+            </select>
+            <button type="submit" id="btnSubmit" class="btnSearchBar">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
       </div>
-     
+    
     </header>
-    <div>
-      <label for="select-page">Page :</label>
-      <select name="select-page" id="select-page"></select>
+   
+    <div class="container-flex">
+      <div id="app"></div>
+        <div style="position: fixed;top: 50%;left: 0;margin-left: 10px;" id="previous" title="Page précédente" data-page><i class="fas fa-angle-left"></i></div>
+        <div style="position: fixed;top: 50%;right: 0;margin-right: 10px;" id="next" title="Page suivante" data-page><i class="fas fa-angle-right"></i></div>
     </div>
-    <div style="position: fixed;top: 50%;left: 0;margin-left: 10px;" id="previous" title="Page précédente" data-page>&#60;</div>
-    <div id="app"></div>
-    <div style="position: fixed;top: 50%;right: 0;margin-right: 10px;" id="next" title="Page suivante" data-page>&#62;</div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

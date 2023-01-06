@@ -1,13 +1,12 @@
 import CardList from "../components/CardList"
 
-const fetchPage = async (page = 1) =>  {
+const fetchPage = async (page = 1) => {
   try {
     const req = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
-    const res = await req.json()
-    console.log(res);
-  
+    const res = await req.json();
+
     return res
-  } catch(e) {
+  } catch (e) {
     throw new Error(e)
   }
 }
@@ -17,37 +16,33 @@ const UserPage = async (obj) => {
 
   let select = document.getElementById('select-page');
 
-  for(var i = 1; i <= res.info.pages; i++){
-    const option = document.createElement('option');
-    option.value = i;
-    option.text = i;
+  if (select.length != res.info.pages) {
+    select.replaceChildren();
+    for (var i = 1; i <= res.info.pages; i++) {
+      const option = document.createElement('option');
+      option.value = i;
+      option.text = i;
 
-    select.appendChild(option);
+      select.appendChild(option);
+    }
   }
-
-
-  let previous = document.getElementById('previous');
-  let next = document.getElementById('next');
 
   let urlPrevious = res.info.prev;
   let urlNext = res.info.next;
 
-  if(urlPrevious){
+  if (urlPrevious) {
     urlPrevious = urlPrevious.slice(47);
-    previous.setAttribute('data-page', urlPrevious);
     previous.classList.remove('d-none');
-  }else{
+  } else {
     previous.classList.add('d-none');
   }
-  
-  if(urlNext){
+
+  if (urlNext) {
     urlNext = urlNext.slice(47);
-    next.setAttribute('data-page', urlNext);
     next.classList.remove('d-none');
-  }else{
+  } else {
     next.classList.add('d-none');
   }
-
 
   return CardList(res.results)
 }

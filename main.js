@@ -1,18 +1,21 @@
 import './style.css'
-import Card from "./src/components/Card";
 import UserPage from "./src/pages/UserPage";
+import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
 import PagePersonnage from './src/pages/PagePersonnage';
 
 const rootElement = document.querySelector('#app')
+const select = document.querySelector('#select-page');
 
-export const tabManager = new TabManager(rootElement, {
-  pagePerso: {
-    component: PagePersonnage
-  },
   user: {
     component: UserPage,
     params: [{ page: 1 }]
+  },
+  pagePerso: {
+    component: PagePersonnage
+  },
+  filtre: {
+    component: FiltrePage
   }
 })
 
@@ -20,21 +23,25 @@ tabManager.openTabById('pagePerso')
 
 tabManager.openTabById('user')
 
-document.querySelectorAll('[data-tabId]').forEach(element => {
+// Actualise la liste en cas de clic sur les flèches
+document.querySelectorAll('[data-page]').forEach(element => {
   element.addEventListener('click', () => {
-    tabManager.openTabById(element.getAttribute('data-tabId'))
+    select.value = parseInt(select.value) + parseInt(element.getAttribute('data-page'));
+    select.dispatchEvent(new Event('change'));
   })
-
-
-
 
 })
 
+document.querySelector('#select-page').addEventListener('change', (e) => {
+  tabManager.openTabById('user', [{ page: e.target.value }]);
+})
 
-
+/* --------------------------------- SEARCHBAR --------------------------------- */
 const searchBar = document.querySelector('#searchBar');
 const searchSelect = document.querySelector('#searchType');
-searchBar.addEventListener('keyup', (event) => {
+const btnSubmit = document.querySelector('#btnSubmit');
+
+btnSubmit.addEventListener('click', () => {
   let searchValue = searchBar.value;
 
   if (searchValue.length > 25) {
@@ -44,11 +51,8 @@ searchBar.addEventListener('keyup', (event) => {
 
   let searchTypeValue = searchSelect.value;
   let searchTypeText = searchSelect.options[searchSelect.selectedIndex].text;
-
-  console.log("searchValue : " + searchValue);
-  console.log("searchTypeValue : " + searchTypeValue);
   
-  renderList(searchValue, searchType);
+  renderList(searchValue, searchTypeValue);
 })
 
 function renderList(searchValue, searchType) {
@@ -72,3 +76,6 @@ document.querySelectorAll('.character').forEach(element => {
   })
 })
 
+function renderList(searchValue, searchTypeValue) {
+  tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue }]);
+}
