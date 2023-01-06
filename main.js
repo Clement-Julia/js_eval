@@ -3,6 +3,7 @@ import UserPage from "./src/pages/UserPage";
 import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
 import PagePersonnage from './src/pages/PagePersonnage';
+import EpPage from './src/pages/EpPage';
 
 const rootElement = document.querySelector('#app')
 const select = document.querySelector('#select-page');
@@ -10,6 +11,9 @@ const select = document.querySelector('#select-page');
 export const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
+  },
+  ep: {
+    component: EpPage,
   },
   pagePerso: {
     component: PagePersonnage
@@ -19,7 +23,8 @@ export const tabManager = new TabManager(rootElement, {
   }
 });
 
-tabManager.openTabById('user', [{ page: 1 }])
+tabManager.openTabById('ep', [{ season: 1 }])
+// tabManager.openTabById('user', [{ page: 1 }])
 
 // Actualise la liste en cas de clic sur les flèches
 document.querySelectorAll('[data-page]').forEach(element => {
@@ -34,6 +39,10 @@ document.querySelectorAll('.select-page').forEach(element => {
   element.addEventListener('change', (e) => {
     tabManager.openTabById('user', [{ page: e.target.value }]);
   })
+})
+
+document.querySelector('#select-season').addEventListener('change', (e) => {
+  tabManager.openTabById('ep', [{ season: e.target.value }]);
 })
 
 /* --------------------------------- SEARCHBAR --------------------------------- */

@@ -236,6 +236,14 @@ body {
   font-weight: 300;
   line-height: 1.2;
 }
+.truncate {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
 /* ---------------- SCROLLBAR ---------------- */
 ::-webkit-scrollbar {
