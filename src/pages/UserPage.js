@@ -21,19 +21,12 @@ const UserPage = async (obj) => {
     classList: ['divPage'],
     children: [
       {
-        tagName: 'label',
-        attributes:{
-          'for':'select-page'
-        },
-        text:'Page :'
-      },
-      {
         tagName: 'select',
         attributes:{
           'id':'select-page',
-          'name':'select-page'
+          'name':'select-page',
+          class: 'bg-dark'
         },
-        text:'Page :'
       },
     ]
   }

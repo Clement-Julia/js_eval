@@ -46,7 +46,6 @@ btnSubmit.addEventListener('click', () => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    console.log(element.getAttribute('data-id'));
     tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })

@@ -11,9 +11,11 @@
   "license": "ISC",
   "devDependencies": {
     "jsdom": "^20.0.3",
-    "vitest": "^0.26.3"
+    "vitest": "^0.26.3",
+    "build": "vite build"
   },
   "dependencies": {
-    "sweetalert2": "^11.6.16"
+    "sweetalert2": "^11.6.16",
+    "vite": "^4.0.4"
   }
 }

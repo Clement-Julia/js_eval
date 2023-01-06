@@ -13,7 +13,6 @@ const fetchPerso = async (id) =>{
 
 const PagePersonnage = async (obj) =>{
     
-    console.log(obj)
     const res = await fetchPerso(obj.perso)
     return Perso(res)
 }

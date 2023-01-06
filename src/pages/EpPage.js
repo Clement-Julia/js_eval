@@ -45,9 +45,9 @@ const EpPage = async (obj) => {
                     tagName: 'select',
                     attributes: {
                         'id': 'select-page',
-                        'name': 'select-page'
+                        'name': 'select-page',
+                        class: 'select-saison bg-dark'
                     },
-                    text: 'Page :'
                 },
             ]
         }
@@ -64,6 +64,7 @@ const EpPage = async (obj) => {
                 const option = document.createElement('option');
                 option.value = element;
                 option.text = `Saison ${element}`;
+                option.classList.add('bg-dark');
 
                 if(option.value == obj.season){
                     option.selected = true;
