@@ -158,17 +158,18 @@ body {
   z-index: 1;
 }
 #select-page {
-  width: 45px;
-  height: 45px;
+  width: 5vh;
+  height: 5vh;
   border-radius: 100%;
   text-align: center;
+  font-size: larger;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 .select-saison {
-  width: 70px !important;
-  border-radius: 2rem !important;
+  width: 7vh !important;
+  border-radius: 2vh !important;
 }
 
 /* */
@@ -310,6 +311,10 @@ body {
   margin-right: 10px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* ---------------- SCROLLBAR ---------------- */
 ::-webkit-scrollbar {
   width: 17px;
@@ -336,4 +341,46 @@ html {
 .swal2-popup {
   color: rgba(255,255,255,.75) !important;
   background-color: #212529 !important;
+}
+
+/* ---------------- BUTTON ----------------*/
+.retour {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  position: fixed;
+  left: 10px;
+  backdrop-filter: blur(20px);
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color .3s, background-color .3s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+  font-weight: 700;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.retour:hover,
+.retour:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+  background-color: var(--color);
+  color: #fff;
+}
+
+.retour:active {
+  background: var(--color);
+  color: #fff;
 }

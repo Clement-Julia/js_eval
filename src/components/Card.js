@@ -11,7 +11,7 @@ export default function Card({ id, name, src }) {
         tagName: 'img',
         attributes: {
           src,
-          class: ['card-image-top']
+          class: ['card-image-top pointer']
         }
       },
       {

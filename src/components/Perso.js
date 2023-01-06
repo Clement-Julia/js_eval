@@ -1,15 +1,19 @@
-import createElement from "../dom/createElement"
+import createElement from "../dom/createElement";
+import { tabManager } from "../../main";
+
 let n = 0;
 let comma = '';
+
 export default function Perso({ name, status, species, type, gender, origin, location, image, episode, url, created }) {
 
   const ep = episode.reduce((acc, curr, index) => {
     n++;
-    if(n == 20 || index == episode.length-1) { comma = ''} else { comma = ', ' }
+    if (n == 20 || index == episode.length - 1) { comma = '' } else { comma = ', ' }
     acc.push({
       tagName: 'span',
       attributes: {
-        class: 'spanEp',
+        class: 'spanEp pointer',
+        id: curr.slice(40)
       },
       text: curr.slice(40) + comma
     });
@@ -22,9 +26,9 @@ export default function Perso({ name, status, species, type, gender, origin, loc
     }
 
     return acc;
-  }, [])
+  }, []);
 
-  return createElement({
+  const HTMLElement = createElement({
 
     tagName: 'div',
     attributes: {
@@ -128,5 +132,13 @@ export default function Perso({ name, status, species, type, gender, origin, loc
 
     ]
   }
-  )
+  );
+
+  HTMLElement.querySelectorAll('.spanEp').forEach(element => {
+    element.addEventListener('click', () => {
+      tabManager.openTabByIdPerso('pageEpisode', element.id);
+    })
+  })
+
+  return HTMLElement;
 }

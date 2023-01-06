@@ -40,7 +40,6 @@ const fetchEpisode = async(id) =>{
 const PageEpisode = async (obj) =>{
     
     const res = await fetchEpisode(obj.perso)
-    console.log(res)
     const elements = Episode(res.data.episode)
     return elements
 }
