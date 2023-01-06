@@ -6,8 +6,8 @@ import PagePersonnage from './src/pages/PagePersonnage';
 
 const rootElement = document.querySelector('#app')
 
-const tabManager = new TabManager(rootElement, {
-  page1: {
+export const tabManager = new TabManager(rootElement, {
+  pagePerso: {
     component: PagePersonnage
   },
   user: {
@@ -16,9 +16,9 @@ const tabManager = new TabManager(rootElement, {
   }
 })
 
-tabManager.openTabById('page1')
+tabManager.openTabById('pagePerso')
 
-
+tabManager.openTabById('user')
 
 document.querySelectorAll('[data-tabId]').forEach(element => {
   element.addEventListener('click', () => {
@@ -63,3 +63,12 @@ document.querySelectorAll('[data-page]').forEach(element => {
 document.querySelector('#select-page').addEventListener('change', (e) => {
   tabManager.openTabById('user', e.target.value);
 })
+
+document.querySelectorAll('.character').forEach(element => {
+  console.log(element);
+  element.addEventListener('click',() =>{
+    console.log(element.getAttribute('data-id'));
+    tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+  })
+})
+
