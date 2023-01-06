@@ -11,6 +11,7 @@ body {
   /* font-family: 'Get Schwifty'; */
   font-weight: normal;
   font-style: normal;
+  height: 100%;
 }
 /* @font-face {
   font-family: 'Get Schwifty';
@@ -329,6 +330,7 @@ body {
 /* Mozilla Firefox */
 html {
   scrollbar-color: rgba(34, 37, 38, 1) rgba(72, 78, 81, 1);
+  height: 100%;
 }
 /* ---------------- SWEET ALERT ---------------- */
 .swal2-popup {
