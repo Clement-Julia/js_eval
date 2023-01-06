@@ -22,8 +22,8 @@ export const tabManager = new TabManager(rootElement, {
   }
 });
 
-tabManager.openTabById('ep', [{ season: 1 }])
-// tabManager.openTabById('user', [{ page: 1 }])
+// tabManager.openTabById('ep', [{ season: 1 }])
+tabManager.openTabById('user', [{ page: 1 }])
 
 /* --------------------------------- SEARCHBAR --------------------------------- */
 const searchBar = document.querySelector('#searchBar');
@@ -46,9 +46,12 @@ btnSubmit.addEventListener('click', () => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+    console.log(element.getAttribute('data-id'));
+    tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })
+
+
 
 function renderList(searchValue, searchTypeValue) {
   tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue, page: 1 }]);

@@ -6,30 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rick & Morty fan-club</title>
 
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-      <script src="https://kit.fontawesome.com/6200c1620f.js" crossorigin="anonymous"></script>
+    <!-- <link rel="preload" href="GetSchwifty-Regular.woff2" as="font" type="font/woff2" crossorigin> -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/6200c1620f.js" crossorigin="anonymous"></script>
+
+    <!-- Sweet Alert 2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.16/sweetalert2.all.min.js" integrity="sha512-4tvE14sHIcdIHl/dUdMHp733PI6MpYA7BDnDfndQmx7aIovEkW+LfkonVO9+NPWP1jYzmrqXJMIT2tECv1TsEQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
   
   </head>
   <body>
-    <header>
-        <div class="center">
-          <div class="divSearchBar">
-            <input type="text" id="searchBar">
-            <select class="select custom-select" id="searchType">
-              <option value="name">Par nom</option>
-              <option value="status">Par statut</option>
-              <option value="species">Par espèce</option>
-              <option value="gender">Par genre</option>
-            </select>
-            <button type="submit" id="btnSubmit" class="btnSearchBar">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-      </div>
-    
-    </header>
+    <div class="header">
+      <div class="divNavbar">
+        <div class="divLinks">
+          <ul>
+            <li><a class="navLink">Personnages</a></li>
+            <li><a class="navLink">Épisodes</a></li>
+          </ul>
+        </div>
+
+        <div class="divSearchBar">
+          <input type="text" id="searchBar" class="bg-dark">
+          <select class="select custom-select bg-dark" id="searchType">
+            <option value="name">Par nom</option>
+            <option value="status">Par statut</option>
+            <option value="species">Par espèce</option>
+            <option value="gender">Par genre</option>
+          </select>
+          <button type="submit" id="btnSubmit" class="btnSearchBar">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+    </div>
    
     <div class="container-flex">
       <div id="app"></div>

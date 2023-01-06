@@ -1,33 +1,50 @@
 import { tabManager } from "../../main";
 import CardList from "../components/CardList"
 import createElement from "../dom/createElement";
+import Swal from 'sweetalert2'
 
 const fetchFiltre = async (searchValue, searchTypeValue, page) => {
 
   try {
-    const req = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&${searchTypeValue}=${searchValue} `).catch(err => { alert("trezdqsd") });
-    console.log(req.status)
+    const req = await fetch(`https://rickandmortyapi.com/api/character/??page=${page}&${searchTypeValue}=${searchValue} `)
     if (req.status === 404) {
-      if (searchTypeValue == "status") {
-        alert("Aucun personnage trouvé avec ce filtre.\nLes statuts possibles sont : alive, dead or unknown")
+      if (searchTypeValue == "name") {
+        Swal.fire({
+          title: 'Aucun personnage trouvé.',
+          text: 'Aucun personnage dont le nom contient \"' + searchValue + '\" trouvé.',
+          icon: 'error',
+          confirmButtonText: 'Fermer'
+        })
+
+      } else if (searchTypeValue == "status") {
+        Swal.fire({
+          title: 'Aucun personnage trouvé.',
+          text: 'Les statuts possibles sont : alive, dead or unknown.',
+          icon: 'error',
+          confirmButtonText: 'Fermer'
+        })
       } else if (searchTypeValue == "species") {
-        alert("Aucun personnage trouvé avec ce filtre.")
+        Swal.fire({
+          title: 'Aucun personnage trouvé.',
+          text: 'Aucun personnage de l\'espèce \"' + searchValue + '\" trouvé.',
+          icon: 'error',
+          confirmButtonText: 'Fermer'
+        })
+
       } else if (searchTypeValue == "gender") {
-        alert("Aucun personnage trouvé avec ce filtre.\nLes genres possibles sont : female, male, genderless or unknown")
+        Swal.fire({
+          title: 'Aucun personnage trouvé.',
+          text: 'Les genres possibles sont : female, male, genderless or unknown.',
+          icon: 'error',
+          confirmButtonText: 'Fermer'
+        })
       }
     }
     const res = await req.json()
 
-    console.log(req);
-
     return res
 
   } catch (e) {
-    console.log(e)
-    console.log(e.message)
-    if (e.message === "404") {
-      alert("111111111")
-    }
     throw new Error(e)
   }
 }

@@ -5,6 +5,15 @@ export default function Perso({ name, status, species, type, gender, origin, loc
     tagName: 'div',
     children: [
       {
+        tagName:'button',
+        text: 'Retour',
+        attributes:{
+          class:['retour'],
+          onclick:['window.location.reload()']
+        }
+       
+      },
+      {
         tagName: 'h1',
         text: name
       },
