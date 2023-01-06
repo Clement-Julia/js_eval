@@ -4,16 +4,12 @@ class TabManager {
     this.componentMapping = componentMapping
   }
 
-  async openTabById(id, page) {
+  async openTabById(id, array) {
     if (!(id in this.componentMapping)) {
       throw new Error('This id is not valid')
     }
     const { component, params = [] } = this.componentMapping[id]
-    if(page){
-      var Component = await component({page})
-    }else{
-      var Component = await component(...params)
-    }
+    let Component = await component(...(params.length ? params : array))
 
     this.rootElement.innerHTML = ''
     this.rootElement.appendChild(Component)
