@@ -1,32 +1,36 @@
 import './style.css'
-import Card from "./src/components/Card";
 import UserPage from "./src/pages/UserPage";
+import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
+import PagePersonnage from './src/pages/PagePersonnage';
+import EpPage from './src/pages/EpPage';
 
 const rootElement = document.querySelector('#app')
 
-const tabManager = new TabManager(rootElement, {
-  page1: {
-    component: () => document.createElement('div'),
-    params: [{ src: 'http://placekitten.com/200/200', text: 'A cat' }]
-  },
+export const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
-    params: [{ page: 1 }]
+  },
+  ep: {
+    component: EpPage,
+  },
+  pagePerso: {
+    component: PagePersonnage
+  },
+  filtre: {
+    component: FiltrePage
   }
-})
+});
 
-tabManager.openTabById('user')
+// tabManager.openTabById('ep', [{ season: 1 }])
+tabManager.openTabById('user', [{ page: 1 }])
 
-document.querySelectorAll('[data-tabId]').forEach(element => {
-  element.addEventListener('click', () => {
-    tabManager.openTabById(element.getAttribute('data-tabId'))
-  })
-})
-
+/* --------------------------------- SEARCHBAR --------------------------------- */
 const searchBar = document.querySelector('#searchBar');
 const searchSelect = document.querySelector('#searchType');
-searchBar.addEventListener('keyup', (event) => {
+const btnSubmit = document.querySelector('#btnSubmit');
+
+btnSubmit.addEventListener('click', () => {
   let searchValue = searchBar.value;
 
   if (searchValue.length > 25) {
@@ -36,22 +40,25 @@ searchBar.addEventListener('keyup', (event) => {
 
   let searchTypeValue = searchSelect.value;
   let searchTypeText = searchSelect.options[searchSelect.selectedIndex].text;
-
-  console.log("searchValue : " + searchValue);
-  console.log("searchTypeValue : " + searchTypeValue);
   
-  renderList(searchValue, searchType);
+  renderList(searchValue, searchTypeValue);
 })
 
-function renderList(searchValue, searchType) {
-  
-}
-document.querySelectorAll('[data-page]').forEach(element => {
-  element.addEventListener('click', () => {
-    tabManager.openTabById('user', element.getAttribute('data-page'));
+document.querySelectorAll('.character').forEach(element => {
+  element.addEventListener('click',() =>{
+    console.log(element.getAttribute('data-id'));
+    tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })
 
-document.querySelector('#select-page').addEventListener('change', (e) => {
-  tabManager.openTabById('user', e.target.value);
-})
+document.querySelector('.tab-perso').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('user', [{ page: 1 }]);
+});
+
+document.querySelector('.tab-ep').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('ep', [{ season: 1 }]);
+});
+
+function renderList(searchValue, searchTypeValue) {
+  tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue, page: 1 }]);
+}

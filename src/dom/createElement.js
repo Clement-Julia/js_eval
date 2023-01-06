@@ -1,3 +1,5 @@
+import {tabManager} from "../../main.js";
+
 const createElement = (obj) => {
   if (!('tagName' in obj)) {
     throw new Error('element should have a tagName');
@@ -6,6 +8,11 @@ const createElement = (obj) => {
   const element = document.createElement(obj.tagName);
 
   if ('classList' in obj) {
+    if(obj.classList.includes('character')){
+      element.addEventListener('click',() =>{
+        tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
+      })
+    }
     element.classList.add(...obj.classList);
   }
 

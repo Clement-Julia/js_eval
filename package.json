@@ -12,5 +12,8 @@
   "devDependencies": {
     "jsdom": "^20.0.3",
     "vitest": "^0.26.3"
+  },
+  "dependencies": {
+    "sweetalert2": "^11.6.16"
   }
 }
