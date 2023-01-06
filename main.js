@@ -30,8 +30,10 @@ document.querySelectorAll('[data-page]').forEach(element => {
 
 })
 
-document.querySelector('#select-page').addEventListener('change', (e) => {
-  tabManager.openTabById('user', [{ page: e.target.value }]);
+document.querySelectorAll('.select-page').forEach(element => {
+  element.addEventListener('change', (e) => {
+    tabManager.openTabById('user', [{ page: e.target.value }]);
+  })
 })
 
 /* --------------------------------- SEARCHBAR --------------------------------- */
@@ -59,7 +61,6 @@ document.querySelector('#select-page').addEventListener('change', (e) => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    console.log(element.getAttribute('data-id'));
     tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
   })
 })
