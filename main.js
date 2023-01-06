@@ -9,14 +9,13 @@ const select = document.querySelector('#select-page');
 const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
-    params: [{ page: 1 }]
   },
   filtre: {
     component: FiltrePage
   }
 })
 
-tabManager.openTabById('user')
+tabManager.openTabById('user', [{ page: 1 }])
 
 // Actualise la liste en cas de clic sur les flèches
 document.querySelectorAll('[data-page]').forEach(element => {
