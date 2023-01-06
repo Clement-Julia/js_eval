@@ -41,6 +41,8 @@ const EpPage = async (obj) => {
     divPage.classList.add('d-none');
     divSeason.classList.remove('d-none');
 
+    console.log({divPage})
+
     if (select.length != seasons.length) {
         seasons.forEach(element => {
             const option = document.createElement('option');

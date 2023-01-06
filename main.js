@@ -4,6 +4,7 @@ import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
 import PagePersonnage from './src/pages/PagePersonnage';
 import EpPage from './src/pages/EpPage';
+import PageEpisode from './src/pages/PageEpisode';
 
 const rootElement = document.querySelector('#app')
 const select = document.querySelector('#select-page');
@@ -20,6 +21,9 @@ export const tabManager = new TabManager(rootElement, {
   },
   filtre: {
     component: FiltrePage
+  },
+  pageEpisode:{
+    component : PageEpisode
   }
 });
 
@@ -70,11 +74,9 @@ document.querySelector('#select-page').addEventListener('change', (e) => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    console.log(element.getAttribute('data-id'));
     tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })
-
 
 
 function renderList(searchValue, searchTypeValue) {
