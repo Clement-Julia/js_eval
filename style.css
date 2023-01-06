@@ -6,19 +6,51 @@ body {
   background-image: linear-gradient(to right bottom, #3747ce, #0068e0, #0084ea, #009dec, #00b4eb, #03c2ec, #29cfeb, #49dbe8, #47e3e8, #4aece6, #52f3e2, #5ffbdd);
   background-size: 100%;
   caret-color: transparent;
-}
-header {
-  padding-top: 20px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
-.divPage {
-  display: flex;
+  font-family: 'Lato', sans-serif;
+  /* font-family: 'Get Schwifty'; */
+  font-weight: normal;
+  font-style: normal;
 }
-/* SearchBar */
+/* @font-face {
+  font-family: 'Get Schwifty';
+  src: url('./style/police/GetSchwifty-Regular.woff') format('woff'),
+       url('./style/police/get_schwifty.ttf') format('truetype');
+} */
+/* ---------------- NavBar ---------------- */
+.divNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #212529;
+  margin-bottom: 2rem;
+  height: 40px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 16px;
+  padding-left: 12px;
+}
+.divLinks > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.divLinks > ul > li {
+  float: left;
+}
+.divLinks > ul > li a {
+  display: block;
+  color: rgba(255,255,255,.5);;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.divLinks > ul > li a:hover {
+  cursor: pointer;
+  color: rgba(255,255,255,.75);
+}
+/* ---------------- SearchBar ---------------- */
 .center {
   display: flex;
   justify-content: center;
@@ -26,25 +58,31 @@ header {
 .divSearchBar {
   display: flex;
   justify-content: center;
-  width: 50vw;
+  width: 55vw;
+  margin-right: 10px;
 }
-#searchBar { 
-  width: 100%;
-  margin-right: auto;
-  
+.custom-select {
   display: block;
-  width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #ffffff;
-  background-color: #212529;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-
-  border-radius: 0.8rem;
+  border: 1px solid rgba(255,255,255,.5);
+}
+#searchBar { 
+  width: 100%;
+  margin-right: auto;
+  display: block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-clip: padding-box;
+  border: 1px solid rgba(255,255,255,.5);
+  
+  border-radius: 2rem;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 
@@ -53,6 +91,11 @@ header {
 #searchBar:focus {
   color: #ffffff;
   border-color: #5cb3fd;
+  outline: none;
+}
+#searchBar:hover {
+  color: #ffffff;
+  background-color: #1D1D1D;
   outline: none;
 }
 #searchType {
@@ -65,18 +108,28 @@ header {
   border-color: #5cb3fd;
   outline: none;
 }
+#searchType:hover {
+  color: #ffffff;
+  background-color: #1D1D1D;
+  outline: none;
+}
 #btnSubmit {
   background-color: #212529;
   color: #0d6efd;
   outline: none;
 
-  border: 1px solid #ced4da;
-  border-radius: 0.8rem;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 2rem;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 
-  padding-right: 12px;
+  padding-right: 14px;
   padding-left: 12px;
+}
+#btnSubmit:hover {
+  color: #2477f3;
+  background-color: #1D1D1D;
+  outline: none;
 }
 .select {
   display: block;
@@ -85,7 +138,8 @@ header {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  border: 1px solid #ced4da;
+  border-right: 0;
+  border-left: 0;
   border-radius: 0.25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -94,6 +148,22 @@ header {
   display: block;
   clear: both;
   content: "";
+}
+
+.divPage, .divSeason {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  z-index: 1;
+}
+#select-page {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* */
@@ -157,4 +227,47 @@ header {
 .bg-dark {
   color: #fff;
   background-color: #212529;;
+}
+.d-none {
+  display: none;
+}
+.titreAccueil {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+.truncate {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* ---------------- SCROLLBAR ---------------- */
+::-webkit-scrollbar {
+  width: 17px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(34, 37, 38, 1);
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(72, 78, 81, 1);
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(91, 98, 101);
+}
+/* Mozilla Firefox */
+html {
+  scrollbar-color: rgba(34, 37, 38, 1) rgba(72, 78, 81, 1);
+}
+/* ---------------- SWEET ALERT ---------------- */
+.swal2-popup {
+  color: rgba(255,255,255,.75) !important;
+  background-color: #212529 !important;
 }
