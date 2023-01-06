@@ -64,6 +64,8 @@ document.querySelectorAll('.character').forEach(element => {
   })
 })
 
+
+
 function renderList(searchValue, searchTypeValue) {
   tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue }]);
 }
