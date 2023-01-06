@@ -20,6 +20,7 @@ class TabManager {
       throw new Error('This id is not valid')
     }
     const { component, params = [] } = this.componentMapping[id]
+    console.log({perso})
     if(perso){
       var Component = await component({perso})
     }else{

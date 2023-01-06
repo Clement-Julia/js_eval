@@ -4,6 +4,7 @@ import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
 import PagePersonnage from './src/pages/PagePersonnage';
 import EpPage from './src/pages/EpPage';
+import PageEpisode from './src/pages/PageEpisode';
 
 const rootElement = document.querySelector('#app')
 
@@ -19,6 +20,9 @@ export const tabManager = new TabManager(rootElement, {
   },
   filtre: {
     component: FiltrePage
+  },
+  pageEpisode:{
+    component : PageEpisode
   }
 });
 
