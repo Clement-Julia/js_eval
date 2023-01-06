@@ -2,18 +2,22 @@ import './style.css'
 import UserPage from "./src/pages/UserPage";
 import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
+import PagePersonnage from './src/pages/PagePersonnage';
 
 const rootElement = document.querySelector('#app')
 const select = document.querySelector('#select-page');
 
-const tabManager = new TabManager(rootElement, {
+export const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
+  },
+  pagePerso: {
+    component: PagePersonnage
   },
   filtre: {
     component: FiltrePage
   }
-})
+});
 
 tabManager.openTabById('user', [{ page: 1 }])
 
@@ -47,6 +51,24 @@ btnSubmit.addEventListener('click', () => {
   let searchTypeText = searchSelect.options[searchSelect.selectedIndex].text;
   
   renderList(searchValue, searchTypeValue);
+})
+
+document.querySelectorAll('[data-page]').forEach(element => {
+  element.addEventListener('click', () => {
+    tabManager.openTabById('user', element.getAttribute('data-page'));
+  })
+})
+
+document.querySelector('#select-page').addEventListener('change', (e) => {
+  tabManager.openTabById('user', e.target.value);
+})
+
+document.querySelectorAll('.character').forEach(element => {
+  console.log(element);
+  element.addEventListener('click',() =>{
+    console.log(element.getAttribute('data-id'));
+    tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+  })
 })
 
 function renderList(searchValue, searchTypeValue) {
