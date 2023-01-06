@@ -60,7 +60,7 @@ document.querySelector('#select-page').addEventListener('change', (e) => {
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
     console.log(element.getAttribute('data-id'));
-    tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+    tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })
 
