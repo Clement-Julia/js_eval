@@ -7,9 +7,9 @@ import PagePersonnage from './src/pages/PagePersonnage';
 const rootElement = document.querySelector('#app')
 const select = document.querySelector('#select-page');
 
+export const tabManager = new TabManager(rootElement, {
   user: {
     component: UserPage,
-    params: [{ page: 1 }]
   },
   pagePerso: {
     component: PagePersonnage
@@ -17,11 +17,9 @@ const select = document.querySelector('#select-page');
   filtre: {
     component: FiltrePage
   }
-})
+});
 
-tabManager.openTabById('pagePerso')
-
-tabManager.openTabById('user')
+tabManager.openTabById('user', [{ page: 1 }])
 
 // Actualise la liste en cas de clic sur les flèches
 document.querySelectorAll('[data-page]').forEach(element => {
@@ -55,9 +53,6 @@ btnSubmit.addEventListener('click', () => {
   renderList(searchValue, searchTypeValue);
 })
 
-function renderList(searchValue, searchType) {
-  
-}
 document.querySelectorAll('[data-page]').forEach(element => {
   element.addEventListener('click', () => {
     tabManager.openTabById('user', element.getAttribute('data-page'));
