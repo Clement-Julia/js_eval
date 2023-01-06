@@ -14,6 +14,22 @@ class TabManager {
     this.rootElement.innerHTML = ''
     this.rootElement.appendChild(Component)
   }
+
+  async openTabByIdPerso(id, perso) {
+    if (!(id in this.componentMapping)) {
+      throw new Error('This id is not valid')
+    }
+    const { component, params = [] } = this.componentMapping[id]
+    if(perso){
+      var Component = await component({perso})
+    }else{
+      var Component = await component(...params)
+    }
+
+    this.rootElement.innerHTML = ''
+    this.rootElement.appendChild(Component)
+  }
 }
+
 
 export default TabManager

@@ -70,9 +70,12 @@ document.querySelector('#select-page').addEventListener('change', (e) => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+    console.log(element.getAttribute('data-id'));
+    tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })
+
+
 
 function renderList(searchValue, searchTypeValue) {
   tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue }]);

@@ -10,7 +10,7 @@ const createElement = (obj) => {
   if ('classList' in obj) {
     if(obj.classList.includes('character')){
       element.addEventListener('click',() =>{
-        tabManager.openTabById('pagePerso', element.getAttribute('data-id'));
+        tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
       })
     }
     element.classList.add(...obj.classList);
