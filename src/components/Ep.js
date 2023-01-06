@@ -1,10 +1,11 @@
 export default function Ep({ id, name, episode }) {
     return {
       tagName: 'div',
-      classList: ['character', 'card', 'bg-dark'],
+      classList: ['ep', 'card', 'bg-dark'],
       attributes:
       {
-        'data-id': id
+        'data-id': id,
+        'title': name
       },
       children: [
         {
