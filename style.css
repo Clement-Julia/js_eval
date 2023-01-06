@@ -158,3 +158,16 @@ header {
   color: #fff;
   background-color: #212529;;
 }
+
+.d-none {
+  display: none;
+}
+
+.truncate {
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  padding-right: 10px;
+}
