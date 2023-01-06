@@ -8,18 +8,25 @@ body {
   caret-color: transparent;
 }
 header {
-  width: 90vh;
+  padding-top: 20px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
 }
 
+.divPage {
+  display: flex;
+}
 /* SearchBar */
+.center {
+  display: flex;
+  justify-content: center;
+}
 .divSearchBar {
   display: flex;
   justify-content: center;
+  width: 50vw;
 }
 #searchBar { 
   width: 100%;
@@ -90,6 +97,17 @@ header {
 }
 
 /* */
+.container-flex {
+  display: flex;
+  justify-content: center;
+}
+#previous, #next {
+  cursor: pointer;
+  font-size: 3rem;
+}
+#previous :hover, #next :hover {
+  color: #212529;
+}
 .users {
   display: grid;
   margin: 0 auto;
