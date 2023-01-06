@@ -4,9 +4,8 @@ import createElement from "../dom/createElement";
 // import Swal from 'sweetalert2'
 
 const fetchFiltre = async (searchValue, searchTypeValue, page) => {
-
   try {
-    const req = await fetch(`https://rickandmortyapi.com/api/character/??page=${page}&${searchTypeValue}=${searchValue} `)
+    const req = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&${searchTypeValue}=${searchValue} `)
     if (req.status === 404) {
       if (searchTypeValue == "name") {
         Swal.fire({

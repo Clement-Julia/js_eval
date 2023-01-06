@@ -1,9 +1,7 @@
 import createElement from "../dom/createElement"
 import Card from "./Card"
 
-export default function Episode({ name, air_date, episode, characters, created }) {
-    console.log(characters)
-    
+export default function Episode({ name, air_date, episode, characters, created }) {    
   return createElement({
     tagName: 'div',
     children: [

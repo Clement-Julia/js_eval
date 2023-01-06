@@ -37,6 +37,11 @@ const EpPage = async (obj) => {
     const res = await fetchEp(obj.season);
 
     if (res) {
+        const title = {
+            tagName: 'h1',
+            text: `Liste des épisodes de la saison ${(obj.season) ? obj.season : 1} :`
+        }
+
         const divPage = {
             tagName: 'div',
             classList: ['divPage'],
@@ -52,9 +57,10 @@ const EpPage = async (obj) => {
             ]
         }
 
+        const titleHTML = createElement(title);
         const HTMLElement = createElement(divPage);
         const select = HTMLElement.querySelector('#select-page');
-        
+
         select.addEventListener('change', (e) => {
             tabManager.openTabById('ep', [{ season: e.target.value }]);
         })
@@ -66,7 +72,7 @@ const EpPage = async (obj) => {
                 option.text = `Saison ${element}`;
                 option.classList.add('bg-dark');
 
-                if(option.value == obj.season){
+                if (option.value == obj.season) {
                     option.selected = true;
                 }
 
@@ -76,6 +82,7 @@ const EpPage = async (obj) => {
 
         const rootElement = document.createElement('div');
 
+        rootElement.appendChild(titleHTML);
         rootElement.appendChild(HTMLElement);
         rootElement.appendChild(EpList(res));
 

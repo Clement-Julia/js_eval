@@ -12,12 +12,9 @@ export default function EpList(arrayOfEp) {
 
   elements.querySelectorAll('.ep').forEach(element =>{
     element.addEventListener('click',() =>{
-      console.log(element.getAttribute('data-id'));
       tabManager.openTabByIdPerso('pageEpisode', element.getAttribute('data-id'));
     })
   })
-  
-  console.log(elements.querySelectorAll('.episode'))
 
   return elements
 }
