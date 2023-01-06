@@ -1,11 +1,10 @@
 import './style.css'
-import Card from "./src/components/Card";
 import UserPage from "./src/pages/UserPage";
 import FiltrePage from "./src/pages/FiltrePage";
 import TabManager from "./src/utils/TabManager";
 
-
 const rootElement = document.querySelector('#app')
+const select = document.querySelector('#select-page');
 
 const tabManager = new TabManager(rootElement, {
   user: {
@@ -22,12 +21,14 @@ tabManager.openTabById('user')
 // Actualise la liste en cas de clic sur les flèches
 document.querySelectorAll('[data-page]').forEach(element => {
   element.addEventListener('click', () => {
-    tabManager.openTabById('user', element.getAttribute('data-page'));
+    select.value = parseInt(select.value) + parseInt(element.getAttribute('data-page'));
+    select.dispatchEvent(new Event('change'));
   })
+
 })
 
 document.querySelector('#select-page').addEventListener('change', (e) => {
-  tabManager.openTabById('user', e.target.value);
+  tabManager.openTabById('user', [{ page: e.target.value }]);
 })
 
 /* --------------------------------- SEARCHBAR --------------------------------- */
