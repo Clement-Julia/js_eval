@@ -1,7 +1,7 @@
 import { tabManager } from "../../main";
 import CardList from "../components/CardList"
 import createElement from "../dom/createElement";
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
 const fetchFiltre = async (searchValue, searchTypeValue, page) => {
 

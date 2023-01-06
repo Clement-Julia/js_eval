@@ -51,7 +51,13 @@ document.querySelectorAll('.character').forEach(element => {
   })
 })
 
+document.querySelector('.tab-perso').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('user', [{ page: 1 }]);
+});
 
+document.querySelector('.tab-ep').addEventListener('click',() =>{
+  tabManager.openTabByIdPerso('ep', [{ season: 1 }]);
+});
 
 function renderList(searchValue, searchTypeValue) {
   tabManager.openTabById('filtre', [{ searchValue: searchValue, searchTypeValue: searchTypeValue, page: 1 }]);
