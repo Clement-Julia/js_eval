@@ -23,8 +23,8 @@ export const tabManager = new TabManager(rootElement, {
   }
 });
 
-tabManager.openTabById('ep', [{ season: 1 }])
-// tabManager.openTabById('user', [{ page: 1 }])
+// tabManager.openTabById('ep', [{ season: 1 }])
+tabManager.openTabById('user', [{ page: 1 }])
 
 // Actualise la liste en cas de clic sur les flèches
 document.querySelectorAll('[data-page]').forEach(element => {
@@ -70,7 +70,6 @@ document.querySelector('#select-page').addEventListener('change', (e) => {
 
 document.querySelectorAll('.character').forEach(element => {
   element.addEventListener('click',() =>{
-    console.log(element.getAttribute('data-id'));
     tabManager.openTabByIdPerso('pagePerso', element.getAttribute('data-id'));
   })
 })

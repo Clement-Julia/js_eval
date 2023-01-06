@@ -58,7 +58,7 @@ body {
 .divSearchBar {
   display: flex;
   justify-content: center;
-  width: 55vw;
+  width: 30rem;
   margin-right: 10px;
 }
 .custom-select {
@@ -167,6 +167,10 @@ body {
 }
 
 /* */
+.container-personnage {
+  display: flex;
+  flex-direction: column;
+}
 .container-flex {
   display: flex;
   justify-content: center;
@@ -193,12 +197,44 @@ body {
 .card {
   position: relative;
   display: flex;
+  /* flex-wrap: wrap; */
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
   border-radius: 0.5rem;
+}
+.cardPerso {
+  width: auto;
+  height: 250px;
+  border-radius: 2rem;
+}
+.card-img {
+  max-height: 300px;
+}
+.card-img > img{
+  width: 250px;
+  height: auto;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+}
+.card-body {
+  width: auto;
+  padding-right: 2rem;
+  padding-left: 1rem;
+  background-color: #212529;
+  color: #fff;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+.card-body > ul {
+  padding-left: 2rem;
+}
+.direction-row {
+  flex-direction: row;
+}
+.justify-center {
+  justify-content: center;
 }
 .card-image-top {
   border-top-left-radius: calc(0.5rem - 1px);
@@ -243,6 +279,16 @@ body {
   text-overflow: ellipsis;
   padding-left: 10px;
   padding-right: 10px;
+}
+.listEpisodes {
+  margin-top: 2rem;
+  padding: 15px;
+  border-radius: 1.2rem;
+  background-color: #212529;
+  color: #fff;
+}
+.retour {
+  width: fit-content;
 }
 
 /* ---------------- SCROLLBAR ---------------- */
