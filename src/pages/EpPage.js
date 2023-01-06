@@ -1,4 +1,6 @@
+import { tabManager } from "../../main";
 import EpList from "../components/EpList";
+import createElement from "../dom/createElement";
 
 let seasons = [];
 
@@ -34,24 +36,52 @@ const fetchEp = async (season = 1) => {
 const EpPage = async (obj) => {
     const res = await fetchEp(obj.season);
 
-    let divPage = document.querySelector('.divPage');
-    let divSeason = document.querySelector('.divSeason');
-    let select = document.getElementById('select-season');
+    if (res) {
+        const divPage = {
+            tagName: 'div',
+            classList: ['divPage'],
+            children: [
+                {
+                    tagName: 'select',
+                    attributes: {
+                        'id': 'select-page',
+                        'name': 'select-page',
+                        class: 'select-saison bg-dark'
+                    },
+                },
+            ]
+        }
 
-    divPage.classList.add('d-none');
-    divSeason.classList.remove('d-none');
+        const HTMLElement = createElement(divPage);
+        const select = HTMLElement.querySelector('#select-page');
+        
+        select.addEventListener('change', (e) => {
+            tabManager.openTabById('ep', [{ season: e.target.value }]);
+        })
 
-    if (select.length != seasons.length) {
-        seasons.forEach(element => {
-            const option = document.createElement('option');
-            option.value = element;
-            option.text = `Saison ${element}`;
+        if (select.length != seasons.length) {
+            seasons.forEach(element => {
+                const option = document.createElement('option');
+                option.value = element;
+                option.text = `Saison ${element}`;
+                option.classList.add('bg-dark');
 
-            select.appendChild(option);
-        });
+                if(option.value == obj.season){
+                    option.selected = true;
+                }
+
+                select.appendChild(option);
+            });
+        }
+
+        const rootElement = document.createElement('div');
+
+        rootElement.appendChild(HTMLElement);
+        rootElement.appendChild(EpList(res));
+
+        return rootElement;
     }
-
-    return EpList(res)
+    return false;
 }
 
 export default EpPage

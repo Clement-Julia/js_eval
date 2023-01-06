@@ -165,6 +165,10 @@ body {
   -moz-appearance: none;
   appearance: none;
 }
+.select-saison {
+  width: 70px !important;
+  border-radius: 2rem !important;
+}
 
 /* */
 .container-personnage {
@@ -175,11 +179,11 @@ body {
   display: flex;
   justify-content: center;
 }
-#previous, #next {
+.previous, .next {
   cursor: pointer;
   font-size: 3rem;
 }
-#previous :hover, #next :hover {
+.previous :hover, .next :hover {
   color: #212529;
 }
 .users {
@@ -289,6 +293,20 @@ body {
 }
 .retour {
   width: fit-content;
+}
+
+.previous {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  margin-left: 10px;
+}
+
+.next{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin-right: 10px;
 }
 
 /* ---------------- SCROLLBAR ---------------- */
