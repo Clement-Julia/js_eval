@@ -18,7 +18,10 @@ const UserPage = async (obj) => {
 
   const title = {
     tagName: 'h1',
-    text: 'Liste des personnages :'
+    text: 'Liste des personnages :',
+    attributes: {
+      class: 'display'
+    }
   }
 
   const divPage = {
