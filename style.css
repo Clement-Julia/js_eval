@@ -8,16 +8,20 @@ body {
   caret-color: transparent;
 
   font-family: 'Lato', sans-serif;
-  /* font-family: 'Get Schwifty'; */
-  font-weight: normal;
-  font-style: normal;
   height: 100%;
 }
-/* @font-face {
+
+@font-face {
   font-family: 'Get Schwifty';
   src: url('./style/police/GetSchwifty-Regular.woff') format('woff'),
        url('./style/police/get_schwifty.ttf') format('truetype');
-} */
+}
+.schwifty {
+  color: #0068e0;
+  font-family: 'Get Schwifty';
+  font-weight: normal;
+  font-style: normal;
+}
 /* ---------------- NavBar ---------------- */
 .divNavbar {
   display: flex;
@@ -61,6 +65,7 @@ body {
   justify-content: center;
   width: 30rem;
   margin-right: 10px;
+  margin-left: auto;
 }
 .custom-select {
   display: block;
@@ -158,8 +163,8 @@ body {
   z-index: 1;
 }
 #select-page {
-  width: 5vh;
-  height: 5vh;
+  width: 3rem;
+  height: 3rem;
   border-radius: 100%;
   text-align: center;
   font-size: larger;
@@ -168,14 +173,22 @@ body {
   appearance: none;
 }
 .select-saison {
-  width: 7vh !important;
-  border-radius: 2vh !important;
+  width: 7rem !important;
+  border-radius: 2.5rem !important;
 }
 
 /* */
-.container-personnage {
+.container-personnage, .container-episode {
   display: flex;
   flex-direction: column;
+}
+.container-episode > h1 {
+  margin: 0;
+}
+.divEpCharacters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .container-flex {
   display: flex;
@@ -193,7 +206,7 @@ body {
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
 }
-.users div {
+.users div, .divEpCharacters div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -239,6 +252,9 @@ body {
 .direction-row {
   flex-direction: row;
 }
+.align-center {
+  align-items: center;
+}
 .justify-center {
   justify-content: center;
 }
@@ -272,6 +288,13 @@ body {
 }
 .d-none {
   display: none;
+}
+.display {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
 }
 .titreAccueil {
   font-size: 3.5rem;
@@ -349,8 +372,6 @@ html {
   --s: .45em; /* size of the corner */
   --color: #373B44;
   
-  position: fixed;
-  left: 10px;
   backdrop-filter: blur(20px);
   padding: calc(.5em + var(--s)) calc(.9em + var(--s));
   color: var(--color);
@@ -365,6 +386,7 @@ html {
   font-weight: 700;
 
   border: 0;
+  margin-bottom: 2rem;
 
   user-select: none;
   -webkit-user-select: none;

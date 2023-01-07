@@ -1,18 +1,21 @@
 import createElement from "../dom/createElement"
 import Card from "./Card"
 
-export default function Episode({ name, air_date, episode, characters, created }) {    
+export default function Episode({ name, air_date, episode, characters, created }) {
   return createElement({
+        
     tagName: 'div',
+    attributes: {
+      class: ['container-episode align-center']
+    },
     children: [
       {
-        tagName:'button',
+        tagName: 'button',
         text: 'Retour',
-        attributes:{
-          class:['retour'],
-          onclick:['window.location.reload()']
-        }
-       
+        attributes: {
+          class: ['retour'],
+          onclick: ['window.location.reload()']
+        },
       },
       {
         tagName: 'h1',
@@ -35,14 +38,17 @@ export default function Episode({ name, air_date, episode, characters, created }
           }
         ]
       },
-      
+
       {
         tagName: 'div',
-        children: characters.map(({ id, name, image }) => Card({ id: id, name:name, src: image }))
+        attributes: {
+          class: ['divEpCharacters']
+        },
+        children: characters.map(({ id, name, image }) => Card({ id: id, name: name, src: image }))
       }
-      
+
     ]
-    
+
   }
   )
 }

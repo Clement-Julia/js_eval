@@ -39,7 +39,10 @@ const EpPage = async (obj) => {
     if (res) {
         const title = {
             tagName: 'h1',
-            text: `Liste des épisodes de la saison ${(obj.season) ? obj.season : 1} :`
+            text: `Liste des épisodes de la saison ${(obj.season) ? obj.season : 1} :`,
+            attributes: {
+                class: 'display'
+            }
         }
 
         const divPage = {
